@@ -57,9 +57,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         //if (authSessionManager.isUserLoggedIn()) {
         if (savedInstanceState == null) {
             if (isLoggedIn) {
-                router.navigateTo(Screens.navigateHomeScreen())
+                navigator.applyCommands(arrayOf<Command>(Replace(Screens.navigateHomeScreen())))
             } else {
-                router.navigateTo(Screens.navigateStartScreen())
+                navigator.applyCommands(arrayOf<Command>(Replace(Screens.navigateStartScreen())))
             }
         }
     }
