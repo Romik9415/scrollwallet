@@ -8,14 +8,16 @@ import com.example.scrollwallet.databinding.HomeFragmentBinding
 import com.example.scrollwallet.ui.base.BaseFragment
 import com.example.scrollwallet.ui.extentions.addSystemTopPadding
 import com.example.scrollwallet.ui.extentions.dp
-import com.example.scrollwallet.ui.extentions.loadWithGlide
 import com.example.scrollwallet.ui.extentions.logd
 import com.example.scrollwallet.ui.extentions.viewBindingWithBinder
 import com.example.scrollwallet.ui.navigation.Screens
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.robinhood.ticker.TickerUtils
 
 class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
+
+    var currentRollBalance = 24.004
 
     val binding by viewBindingWithBinder(HomeFragmentBinding::bind)
     override fun initViewModel() {
@@ -25,9 +27,14 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
     val CORNER_SHRINK_RANGE = 0.15f
 
     override fun onViewReady(inflatedView: View, args: Bundle?) {
+        binding.tvUserDescription.apply {
+            setCharacterLists(TickerUtils.provideNumberList())
+            animationDuration = 800
+        }
+        binding.tvUserDescription.text = "24.004 ROLL"
         val pageAdapter = ProfileViewPagerAdapter(this)
         setViewPager(pageAdapter)
-        binding.ivPhotoGalery.loadWithGlide("https://gadgetmates.com/wp-content/uploads/2024/02/image-116.jpeg")
+        //binding.ivPhotoGalery.loadWithGlide("https://gadgetmates.com/wp-content/uploads/2024/02/image-116.jpeg")
         val viewToGrow: View = binding.tlLocation
         val baseTopPadding = viewToGrow.paddingTop
 
@@ -36,7 +43,7 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
 
         // Determine how much top padding has to grow while the app bar scrolls.
         //var maxDeltaPadding = toolbarHeight + topInsets + toolbarHeight
-        val maxDeltaPadding = 100.dp
+        val maxDeltaPadding = 110.dp
         logd("LocationFragment::", "maxDeltaPadding: $maxDeltaPadding")
         //val contentView = findViewById<View>(android.R.id.content)
 //        val contentView = binding.tlLocation
@@ -95,7 +102,8 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
     override fun setListeners() {
         binding.ivShare.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
-        //        binding.cvScroll.setOnClickListener(this)
+        binding.llScanner.setOnClickListener(this)
+        binding.cvRoll.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -104,8 +112,13 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
 
             }
 
+            binding.llScanner -> {
+                currentRollBalance += 0.001
+                binding.tvUserDescription.text = getBalanceString()
+            }
+
             binding.ivBack -> router.exit()
-            //binding.cvScroll -> router.navigateTo(Screens.navigateToScrollScreen())
+            binding.cvRoll -> router.navigateTo(Screens.navigateToScrollScreen())
         }
 
     }
@@ -123,5 +136,9 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
 
     override fun setInsetForFragment() {
         binding.llToolbar.addSystemTopPadding()
+    }
+
+    private fun getBalanceString(): String {
+        return String.format("%.3f", currentRollBalance) + " ROLL"
     }
 }

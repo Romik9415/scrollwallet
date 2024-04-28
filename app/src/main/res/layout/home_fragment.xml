@@ -46,89 +46,98 @@
                     <ImageView
                         android:id="@+id/ivPhotoGalery"
                         android:layout_width="match_parent"
-                        android:layout_height="360dp"
+                        android:layout_height="280dp"
                         android:scaleType="centerCrop"
+                        android:src="@drawable/ill_base_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayout"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvRoll"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:foreground="?selectableItemBackgroundBorderless"
+                        app:cardCornerRadius="16dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/vStatusBar">
+                        app:layout_constraintTop_toBottomOf="@+id/vStatusBar"
+                        app:layout_constraintVertical_bias="0.8">
 
-                        <ImageView
-                            android:id="@+id/ivProfilePicture"
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="24dp"
-                            android:layout_marginBottom="24dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ill_feature_icon_4"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
 
-                        <TextView
-                            android:id="@+id/tvUserName"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/color_high_contrast"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toStartOf="@+id/llScanner"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/ivProfilePicture"
-                            app:layout_constraintTop_toTopOf="@+id/ivProfilePicture"
-                            tools:text="Username" />
-
-                        <TextView
-                            android:id="@+id/tvUserDescription"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="24dp"
-                            android:layout_weight="1"
-                            android:ellipsize="end"
-                            android:textColor="@color/color_medium_contrast"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/llScanner"
-                            app:layout_constraintStart_toEndOf="@+id/ivProfilePicture"
-                            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
-                            tools:text="@tools:sample/lorem/random" />
-
-                        <LinearLayout
-                            android:id="@+id/llScanner"
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:layout_marginEnd="24dp"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            android:background="@drawable/ill_noisy_dark">
 
                             <ImageView
-                                android:id="@+id/ivQrCodeScanner"
-                                android:layout_width="42dp"
-                                android:layout_height="42dp"
+                                android:id="@+id/ivProfilePicture"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ill_feature_icon_4" />
-                        </LinearLayout>
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="24dp"
+                                android:layout_marginBottom="24dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/ill_scroll_wallet_logo"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            <TextView
+                                android:id="@+id/tvUserName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="1"
+                                android:text="Your ROLL coin balance:"
+                                android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+                                android:textColor="#FFFFFF"
+                                app:layout_constraintBottom_toTopOf="@+id/tvUserDescription"
+                                app:layout_constraintEnd_toStartOf="@+id/llScanner"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_chainStyle="packed" />
+
+                            <com.robinhood.ticker.TickerView
+                                android:id="@+id/tvUserDescription"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="16dp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                android:textColor="#fff"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/llScanner"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture"
+                                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                                tools:text="24.004 ROLL" />
+
+                            <ImageView
+                                android:id="@+id/llScanner"
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_marginEnd="24dp"
+                                android:gravity="center"
+                                android:padding="4dp"
+                                android:src="@drawable/ic_videogame_asset"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -139,6 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:backgroundTint="@color/background"
                 app:layout_collapseMode="pin"
                 app:tabMaxWidth="0dp"
                 app:tabMode="scrollable" />
@@ -172,7 +182,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
+                android:layout_height="80dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -192,19 +202,40 @@
                 <TextView
                     android:id="@+id/tvToolbarTitle"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:lines="1"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
-                    android:text="Username"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:text="Total balance:"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
                     android:textColor="@color/color_high_contrast"
+                    app:layout_constraintBottom_toTopOf="@+id/tvToolbarBalance"
+                    app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/ivBack"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tvToolbarBalance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:text="$151.34"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                    android:textColor="@color/color_high_contrast"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/ivBack"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvToolbarTitle" />
 
                 <ImageView
                     android:id="@+id/ivFavorite"
@@ -212,7 +243,7 @@
                     android:layout_height="match_parent"
                     android:background="?android:selectableItemBackgroundBorderless"
                     android:padding="16dp"
-                    android:src="@drawable/ic_settings"
+                    android:src="@drawable/ic_notifications"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/ivShare"
                     app:layout_constraintTop_toTopOf="parent"
@@ -224,7 +255,7 @@
                     android:layout_height="match_parent"
                     android:background="?android:selectableItemBackgroundBorderless"
                     android:padding="16dp"
-                    android:src="@drawable/ic_settings"
+                    android:src="@drawable/ic_qr_code_scanner"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

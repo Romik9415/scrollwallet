@@ -53,17 +53,14 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mainContainer)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-        val isLoggedIn = false
+        val isLoggedIn = true
         //if (authSessionManager.isUserLoggedIn()) {
-        if (isLoggedIn) {
-            navigator.applyCommands(arrayOf<Command>(Replace(Screens.navigateHomeScreen())))
-        } else {
-            navigator.applyCommands(arrayOf<Command>(Replace(Screens.navigateStartScreen())))
+        if (savedInstanceState == null) {
+            if (isLoggedIn) {
+                router.navigateTo(Screens.navigateHomeScreen())
+            } else {
+                router.navigateTo(Screens.navigateStartScreen())
+            }
         }
     }
 

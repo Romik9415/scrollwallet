@@ -4,7 +4,10 @@
     <color name="background">#141414</color>
     <color name="primary">#FF684B</color>
 
-    <color name="color_high_contrast">#F000</color>
+    <color name="surface">#1F1E1F</color>
+
+    <!--  Text colors  -->
+    <color name="color_high_contrast">#FFF</color>
     <color name="color_medium_contrast">#B6BFC9</color>
     <color name="color_low_contrast">#6D8092</color>
 </resources>

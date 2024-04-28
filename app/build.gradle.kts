@@ -61,4 +61,5 @@ dependencies {
 
     //glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.robinhood.ticker:ticker:2.0.4")
 }
