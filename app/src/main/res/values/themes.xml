@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ScrollWallet" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/primary</item>
+        <item name="background">@color/background</item>
+    </style>
+
+    <style name="Theme.ScrollWallet" parent="Base.Theme.ScrollWallet" />
+
+    <style name="Widget.Scroll.TabLayout" parent="@style/Widget.Material3.TabLayout">
+        <item name="tabTextColor">@color/color_medium_contrast</item>
+        <item name="tabSelectedTextColor">@color/color_high_contrast</item>
+        <item name="tabIndicatorHeight">4dp</item>
+    </style>
+</resources>

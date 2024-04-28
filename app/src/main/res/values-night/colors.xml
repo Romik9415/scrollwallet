@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Dark  -->
+    <color name="background">#141414</color>
+    <color name="primary">#FF684B</color>
+
+    <color name="color_high_contrast">#F000</color>
+    <color name="color_medium_contrast">#B6BFC9</color>
+    <color name="color_low_contrast">#6D8092</color>
+</resources>

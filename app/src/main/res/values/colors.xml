@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  Light  -->
+    <color name="background">#FFF9F3</color>
+    <color name="primary">#FF684B</color>
+    <!--  Text colors  -->
+    <color name="color_high_contrast">#FFF</color>
+    <color name="color_medium_contrast">#B6BFC9</color>
+    <color name="color_low_contrast">#6D8092</color>
+</resources>

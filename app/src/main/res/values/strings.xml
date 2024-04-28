@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Scroll Wallet</string>
+    <string name="crypto">Crypto</string>
+    <string name="nfts">NFTs</string>
+</resources>
