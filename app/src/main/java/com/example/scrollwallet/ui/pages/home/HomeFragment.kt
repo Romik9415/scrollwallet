@@ -3,6 +3,7 @@ package com.example.scrollwallet.ui.pages.home
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import androidx.fragment.app.viewModels
 import com.example.scrollwallet.R
 import com.example.scrollwallet.databinding.HomeFragmentBinding
 import com.example.scrollwallet.ui.base.BaseFragment
@@ -16,12 +17,13 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.robinhood.ticker.TickerUtils
 
 class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
+    val binding by viewBindingWithBinder(HomeFragmentBinding::bind)
+    val viewModel: HomeViewModel by viewModels()
 
     var currentRollBalance = 24.004
 
-    val binding by viewBindingWithBinder(HomeFragmentBinding::bind)
-    override fun initViewModel() {
 
+    override fun initViewModel() {
     }
 
     val CORNER_SHRINK_RANGE = 0.15f

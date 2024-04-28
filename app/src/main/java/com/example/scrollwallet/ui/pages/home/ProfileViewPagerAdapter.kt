@@ -5,11 +5,12 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.scrollwallet.R
 import com.example.scrollwallet.ui.pages.home.liked.LikedFragment
+import com.example.scrollwallet.ui.pages.home.tokens.CryptoFragment
 
 class ProfileViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
     val listOFragments = listOf<Pair<@StringRes Int, Fragment>>(
-        Pair(R.string.crypto, LikedFragment()),
+        Pair(R.string.crypto, CryptoFragment()),
         Pair(R.string.nfts, LikedFragment()),
     )
 
