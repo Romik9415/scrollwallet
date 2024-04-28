@@ -1,4 +1,7 @@
 package com.example.scrollwallet.data.dto
+
+import kotlin.math.pow
+
 //"contract_decimals":18,
 //            "contract_name":"ether.fi ETH",
 //            "contract_ticker_symbol":"eETH",
@@ -40,14 +43,28 @@ data class WalletItem(
 //    val native_token: Boolean,
 //    val type: String,
 //    val is_spam: Boolean,
-//    val balance: String,
+    val balance: String,
 //    val balance_24h: String,
-//    val quote_rate: Double,
-//    val quote_rate_24h: Double,
+    val quote_rate: Double?,
+    val quote_rate_24h: Double?,
 //    val quote: Double,
     val pretty_quote: String?,
 //    val quote_24h: Double,
 //    val pretty_quote_24h: String,
 //    val protocol_metadata: String?,
 //    val nft_data: String?
-)
+) {
+    fun isItemIsSame(newItem: WalletItem): Boolean {
+        return this == newItem
+    }
+
+    //4765197696161521209
+    fun getBalanceStr(): String {
+        return balance
+//            .toBigDecimalOrNull()?.let {
+//            val decimals = 18
+//            val balance = it / 10.0.pow(decimals)
+//            balance.toString()
+//        } ?: "?"
+    }
+}
