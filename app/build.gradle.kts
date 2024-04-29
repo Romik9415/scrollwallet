@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -73,4 +74,16 @@ dependencies {
 
     //Base
     implementation("androidx.fragment:fragment-ktx:1.6.1")
+
+    //Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+
+    implementation ("com.google.code.gson:gson:2.10.1")
+
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
+    implementation ("androidx.core:core-ktx:1.12.0")
+
+    implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
 }

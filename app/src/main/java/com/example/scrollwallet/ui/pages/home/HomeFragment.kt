@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.scrollwallet.R
 import com.example.scrollwallet.databinding.HomeFragmentBinding
 import com.example.scrollwallet.ui.base.BaseFragment
@@ -15,15 +16,16 @@ import com.example.scrollwallet.ui.navigation.Screens
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.robinhood.ticker.TickerUtils
+import kotlinx.coroutines.launch
 
 class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
     val binding by viewBindingWithBinder(HomeFragmentBinding::bind)
     val viewModel: HomeViewModel by viewModels()
 
-    var currentRollBalance = 24.004
-
-
     override fun initViewModel() {
+        viewModel.currentRollsLiveData.observe(this) {
+            binding.tvUserDescription.text = getBalanceString(it?.rolls)
+        }
     }
 
     val CORNER_SHRINK_RANGE = 0.15f
@@ -33,7 +35,6 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
             setCharacterLists(TickerUtils.provideNumberList())
             animationDuration = 800
         }
-        binding.tvUserDescription.text = "24.004 ROLL"
         val pageAdapter = ProfileViewPagerAdapter(this)
         setViewPager(pageAdapter)
         //binding.ivPhotoGalery.loadWithGlide("https://gadgetmates.com/wp-content/uploads/2024/02/image-116.jpeg")
@@ -115,8 +116,11 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
             }
 
             binding.llScanner -> {
-                currentRollBalance += 0.001
-                binding.tvUserDescription.text = getBalanceString()
+                viewLifecycleOwner.lifecycleScope.launch {
+                    viewModel.rollsIncrease()
+                }
+
+                //binding.tvUserDescription.text = getBalanceString()
             }
 
             binding.ivBack -> router.exit()
@@ -140,7 +144,8 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
         binding.llToolbar.addSystemTopPadding()
     }
 
-    private fun getBalanceString(): String {
+    private fun getBalanceString(currentRollBalance: Double?): String {
+        if (currentRollBalance == null) return "0.000 ROLL"
         return String.format("%.3f", currentRollBalance) + " ROLL"
     }
 }

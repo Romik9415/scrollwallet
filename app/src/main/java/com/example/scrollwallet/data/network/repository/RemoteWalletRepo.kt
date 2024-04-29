@@ -8,6 +8,7 @@ import javax.inject.Inject
 class RemoteWalletRepo @Inject constructor(
     private val api: BaseApi
 ) {
+
     suspend fun getWalletData(): CovalentResponse<Wallet>? {
         val walletInfo = api.getWalletInfo("cqt_rQDk7GptHtGPJtdpgtDBVpmP6Pjr")
         if (walletInfo.isSuccessful) {
