@@ -6,11 +6,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    val localWalletRepo: LocalWalletRepo
+    localWalletRepo: LocalWalletRepo
 ) : BaseViewModel() {
-    suspend fun rollsIncrease() {
-        localWalletRepo.rollsIncrease()
-    }
 
     val currentRollsLiveData = localWalletRepo.currentRollsLiveData
 

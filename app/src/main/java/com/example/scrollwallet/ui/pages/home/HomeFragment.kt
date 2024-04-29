@@ -105,7 +105,6 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
     override fun setListeners() {
         binding.ivShare.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
-        binding.llScanner.setOnClickListener(this)
         binding.cvRoll.setOnClickListener(this)
     }
 
@@ -113,14 +112,6 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
         when (v) {
             binding.ivShare -> {
 
-            }
-
-            binding.llScanner -> {
-                viewLifecycleOwner.lifecycleScope.launch {
-                    viewModel.rollsIncrease()
-                }
-
-                //binding.tvUserDescription.text = getBalanceString()
             }
 
             binding.ivBack -> router.exit()
