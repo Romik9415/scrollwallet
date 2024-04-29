@@ -12,7 +12,7 @@ class ScrollViewHolder(
 
 
     fun bind(item: Scroll) {
-        binding.tvId.text = item.id.toString()
+        binding.tvId.text = item.text
     }
 
 

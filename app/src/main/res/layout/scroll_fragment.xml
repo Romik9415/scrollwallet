@@ -221,9 +221,11 @@
             android:orientation="horizontal">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clEarn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:foreground="?selectableItemBackgroundBorderless">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -313,11 +315,13 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/piEnergy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:max="1000"
         android:progress="30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -329,9 +333,9 @@
         android:id="@+id/rvScroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvRoll2" />
+        app:layout_constraintTop_toBottomOf="@+id/piEnergy" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

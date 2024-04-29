@@ -8,7 +8,7 @@ import com.example.scrollwallet.ui.base.BaseFragment
 import com.example.scrollwallet.ui.extentions.addSystemTopPadding
 import com.example.scrollwallet.ui.extentions.viewBindingWithBinder
 
-class NotificationFragment : BaseFragment(R.layout.notification_fragment) {
+class NotificationFragment : BaseFragment(R.layout.notification_fragment), View.OnClickListener {
     val binding by viewBindingWithBinder(NotificationFragmentBinding::bind)
     override fun initViewModel() {
 
@@ -19,10 +19,16 @@ class NotificationFragment : BaseFragment(R.layout.notification_fragment) {
     }
 
     override fun setListeners() {
-
+        binding.ivBack.setOnClickListener(this)
     }
 
     override fun setInsetForFragment() {
         binding.llToolbar.addSystemTopPadding()
+    }
+
+    override fun onClick(v: View?) {
+        when (v) {
+            binding.ivBack -> router.exit()
+        }
     }
 }

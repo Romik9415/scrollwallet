@@ -13,7 +13,7 @@ class LocalWalletRepo @Inject constructor(
             db.userDao().insertData(User("1", 0.0))
             return
         }
-        user.rolls += 1
+        user.rolls += 0.0001
         db.userDao().insertData(user)
     }
 

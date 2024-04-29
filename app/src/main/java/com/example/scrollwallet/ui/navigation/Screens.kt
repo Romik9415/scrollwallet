@@ -2,6 +2,7 @@ package com.example.scrollwallet.ui.navigation
 
 import android.content.Intent
 import android.net.Uri
+import com.example.scrollwallet.ui.pages.earn.EarnFragment
 import com.example.scrollwallet.ui.pages.home.HomeFragment
 import com.example.scrollwallet.ui.pages.notifications.NotificationFragment
 import com.example.scrollwallet.ui.pages.scroll.ScrollFragment
@@ -20,4 +21,6 @@ object Screens {
     fun openUrl(uriStr: String) = ActivityScreen {
         Intent(Intent.ACTION_VIEW, Uri.parse(uriStr))
     }
+
+    fun navigateToEarnScreen() = FragmentScreen { EarnFragment() }
 }

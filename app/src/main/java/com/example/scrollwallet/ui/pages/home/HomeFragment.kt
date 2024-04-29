@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.scrollwallet.R
 import com.example.scrollwallet.databinding.HomeFragmentBinding
 import com.example.scrollwallet.ui.base.BaseFragment
@@ -23,8 +25,13 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
     private val viewModel: HomeViewModel by viewModels()
 
     override fun initViewModel() {
-        viewModel.currentRollsLiveData.observe(this) {
-            binding.tvUserDescription.text = getBalanceString(it?.rolls)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.currentRollsLiveData.collect {
+                    it ?: return@collect
+                    binding.tvUserDescription.text = getBalanceString(it.rolls)
+                }
+            }
         }
     }
 

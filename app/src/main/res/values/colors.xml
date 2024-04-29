@@ -6,6 +6,7 @@
     <color name="primary">#FF684B</color>
 
     <color name="surface">#FEF1DD</color>
+    <color name="surface2">#EECCA2</color>
 
     <color name="color_high_contrast">#101010</color>
     <color name="color_medium_contrast">#252525</color>
