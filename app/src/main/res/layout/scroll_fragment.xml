@@ -82,7 +82,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:foreground="?selectableItemBackgroundBorderless"
         app:cardCornerRadius="16dp"
@@ -96,7 +95,7 @@
             android:background="@drawable/ill_noisy_dark">
 
             <ImageView
-                android:id="@+id/ivProfilePicture"
+                android:id="@+id/ivProfilePicture2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -110,7 +109,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvUserName"
+                android:id="@+id/tvUserName2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -120,15 +119,15 @@
                 android:text="Your ROLL coin balance:"
                 android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
                 android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toTopOf="@+id/tvUserDescription"
-                app:layout_constraintEnd_toStartOf="@+id/llScanner"
+                app:layout_constraintBottom_toTopOf="@+id/tvUserDescription2"
+                app:layout_constraintEnd_toStartOf="@+id/llScanner2"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture"
+                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed" />
 
             <com.robinhood.ticker.TickerView
-                android:id="@+id/tvUserDescription"
+                android:id="@+id/tvUserDescription2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -139,14 +138,96 @@
                 android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
                 android:textColor="#fff"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/llScanner"
+                app:layout_constraintEnd_toStartOf="@+id/llScanner2"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture"
-                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture2"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName2"
                 tools:text="24.004 ROLL" />
 
             <ImageView
-                android:id="@+id/llScanner"
+                android:id="@+id/llScanner2"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="24dp"
+                android:gravity="center"
+                android:padding="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRoll2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:foreground="?selectableItemBackgroundBorderless"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvRoll">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ill_noisy_dark">
+
+            <ImageView
+                android:id="@+id/ivProfilePicture3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ill_sponsor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvUserName3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:text="Subscribe to https://t.me/covalenthqann"
+                android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/tvUserDescription3"
+                app:layout_constraintEnd_toStartOf="@+id/llScanner3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tvUserDescription3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:text="Get 10 Sroll"
+                android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                android:textColor="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/llScanner3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture3"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName3"
+                tools:text="24.004 ROLL" />
+
+            <ImageView
+                android:id="@+id/llScanner3"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginEnd="24dp"
@@ -159,11 +240,12 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvScroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvRoll"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/cvRoll2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

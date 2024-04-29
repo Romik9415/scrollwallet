@@ -15,4 +15,8 @@ class ScrollViewModel @Inject constructor(
     suspend fun rollsIncrease() {
         localWalletRepo.rollsIncrease()
     }
+
+    suspend fun updateRolls(totalItemsViewed: Int) {
+        localWalletRepo.rollsIncrease(totalItemsViewed)
+    }
 }
