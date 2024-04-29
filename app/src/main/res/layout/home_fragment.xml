@@ -188,7 +188,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/ivBack"
+                    android:id="@+id/ivSettings"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="?android:selectableItemBackgroundBorderless"
@@ -212,7 +212,7 @@
                     android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
                     android:textColor="@color/color_high_contrast"
                     app:layout_constraintBottom_toTopOf="@+id/tvToolbarBalance"
-                    app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
+                    app:layout_constraintEnd_toStartOf="@+id/ivSettings"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/ivBack"
                     app:layout_constraintTop_toTopOf="parent"
@@ -232,30 +232,18 @@
                     android:textColor="@color/color_high_contrast"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
+                    app:layout_constraintEnd_toStartOf="@+id/ivNotifications"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/ivBack"
+                    app:layout_constraintStart_toEndOf="@+id/ivSettings"
                     app:layout_constraintTop_toBottomOf="@+id/tvToolbarTitle" />
 
                 <ImageView
-                    android:id="@+id/ivFavorite"
+                    android:id="@+id/ivNotifications"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="?android:selectableItemBackgroundBorderless"
                     android:padding="16dp"
                     android:src="@drawable/ic_notifications"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/ivShare"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/color_high_contrast" />
-
-                <ImageView
-                    android:id="@+id/ivShare"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="?android:selectableItemBackgroundBorderless"
-                    android:padding="16dp"
-                    android:src="@drawable/ic_qr_code_scanner"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

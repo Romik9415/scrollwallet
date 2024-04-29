@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 
 class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
     val binding by viewBindingWithBinder(HomeFragmentBinding::bind)
-    val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun initViewModel() {
         viewModel.currentRollsLiveData.observe(this) {
@@ -103,18 +103,15 @@ class HomeFragment : BaseFragment(R.layout.home_fragment), OnClickListener {
     }
 
     override fun setListeners() {
-        binding.ivShare.setOnClickListener(this)
-        binding.ivBack.setOnClickListener(this)
+        binding.ivSettings.setOnClickListener(this)
+        binding.ivNotifications.setOnClickListener(this)
         binding.cvRoll.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v) {
-            binding.ivShare -> {
-
-            }
-
-            binding.ivBack -> router.exit()
+            binding.ivNotifications -> router.navigateTo(Screens.navigateToNotificationScreen())
+            binding.ivSettings -> router.navigateTo(Screens.navigateToSettingsScreen())
             binding.cvRoll -> router.navigateTo(Screens.navigateToScrollScreen())
         }
 
