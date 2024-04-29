@@ -86,7 +86,7 @@ class ScrollFragment : BaseFragment(R.layout.scroll_fragment), View.OnClickListe
 
     override fun setListeners() {
         binding.ivBack.setOnClickListener(this)
-        binding.tvUserDescription3.setOnClickListener(this)
+        //binding.tvUserDescription3.setOnClickListener(this)
     }
 
     override fun setInsetForFragment() {
@@ -96,9 +96,9 @@ class ScrollFragment : BaseFragment(R.layout.scroll_fragment), View.OnClickListe
     override fun onClick(v: View?) {
         when (v) {
             binding.ivBack -> router.exit()
-            binding.tvUserDescription3 -> {
-                router.navigateTo(Screens.openUrl("https://t.me/covalenthqann"))
-            }
+//            binding.tvUserDescription3 -> {
+//                router.navigateTo(Screens.openUrl("https://t.me/covalenthqann"))
+//            }
         }
     }
 
